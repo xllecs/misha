@@ -1,0 +1,31 @@
+.game-wrapper {
+  width: 14vw;
+  height: 14vw;
+  position: absolute;
+  overflow: hidden;
+}
+
+.game-wrapper .image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0)
+}
+
+.game-wrapper .title-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  overflow: hidden;
+  pointer-events: none;
+  font-size: 2vw;
+}
+
+.title-wrapper .letter {
+  transform: translateY(40px);
+}

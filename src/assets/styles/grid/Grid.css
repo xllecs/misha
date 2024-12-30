@@ -1,0 +1,17 @@
+.grid-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 900px;
+}
+
+.grid-content {
+  top: 50%;
+  left: 65%;
+  position: absolute;
+  width: 120vh;
+  height: 75%;
+  transform: rotateY(-90deg) translateY(-50%);
+  opacity: .5;
+  pointer-events: none;
+}

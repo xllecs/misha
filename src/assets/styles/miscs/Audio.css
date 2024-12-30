@@ -1,0 +1,64 @@
+.audio-wrapper {
+  position: absolute;
+  /* z-index: 1; */
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+}
+
+.bars {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  height: 50px;
+}
+
+.bars span {
+  width: 8px;
+  height: 100%;
+  background-color: white;
+  opacity: .5;
+  transform-origin: bottom;
+  animation: bounce 2.2s ease infinite alternate;
+  content: '';
+  border-radius: 2vw;
+}
+
+@keyframes bounce {
+  10% {
+    transform: scaleY(0.3);
+    opacity: .2;
+  }
+
+  30% {
+    transform: scaleY(1);
+    opacity: .6;
+  }
+
+  60% {
+    transform: scaleY(0.5);
+    opacity: .3;
+  }
+
+  80% {
+    transform: scaleY(0.75);
+    opacity: .55;
+  }
+
+  100% {
+    transform: scaleY(0.6);
+    opacity: .4;
+  }
+}
+
+span:nth-of-type(2) {
+  animation-delay: -2.2s;
+}
+
+span:nth-of-type(3) {
+  animation-delay: -3.7s;
+}
+
+span:nth-of-type(4) {
+  animation-delay: -5s;
+}
