@@ -1,0 +1,104 @@
+[
+  {
+    "title":"METIN2",
+    "imageUrl": "src/assets/grid/metin2/metin2.jpg",
+    "videos": [
+      {
+        "title": "SOL2",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg",
+        "videoUrl": "src/assets/grid/metin2/videos/tiktok-video.mp4"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg"
+      },
+      {
+        "title": "Metin2 - Gameplay",
+        "thumbnailUrl": "src/assets/grid/metin2/metin2.jpg",
+        "videoUrl": "src/assets/grid/metin2/videos/tiktok-video.mp4"
+      }
+    ],
+    "position": {
+      "x": 6,
+      "y": 40
+    }
+  },
+  {
+    "title":"FIVEM",
+    "imageUrl": "src/assets/grid/fivem/fivem.jpg",
+    "videos": [
+      {
+        "title": "FiveM - Trailer",
+        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
+      },
+      {
+        "title": "FiveM - Gameplay",
+        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
+      },
+      {
+        "title": "FiveM - Gameplay",
+        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
+      },
+      {
+        "title": "FiveM - Gameplay",
+        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
+      }
+    ],
+    "position": {
+      "x": 40,
+      "y": 10
+    }
+  },
+  {
+    "title":"BDO",
+    "imageUrl": "src/assets/grid/bdo/bdo.jpg",
+    "position": {
+      "x": 70,
+      "y": 45
+    }
+  },
+  {
+    "title":"MY WORK",
+    "imageUrl": "src/assets/grid/bdo/bdo.jpg",
+    "position": {
+      "x": 35,
+      "y": 55
+    }
+  }
+]
