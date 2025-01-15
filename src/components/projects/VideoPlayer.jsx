@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
-import '../../assets/styles/grid/VideoPlayer.css'
+import '../../assets/styles/projects/VideoPlayer.css'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+
+import { useSelector } from 'react-redux'
 
 const VideoPlayer = ({ videoSrc, onClose }) => {
   const [play, setPlay] = useState(true)
   const [volume, setVolume] = useState(1)
   const videoRef = useRef(null)
   const progressRef = useRef(null)
+
+  const { isSmallScreen } = useSelector(state => state.screenSize)
 
   const handlePlay = () => {
     let tl = gsap.timeline({
@@ -81,6 +85,24 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
     })
   }
 
+  const showControls = () => {
+    gsap.killTweensOf('.video-controls')
+
+    gsap.to('.video-controls', {
+      opacity: 1,
+      duration: .2,
+      display: 'flex',
+      onComplete: () => {
+        gsap.to('.video-controls', {
+          opacity: 0,
+          duration: .2,
+          display: 'none',
+          delay: 2,
+        })
+      }
+    })
+  }
+
   const videoTime = () => {
     const percentage = videoRef.current.currentTime / videoRef.current.duration * 100
     gsap.to('.progress-bar', {
@@ -112,6 +134,9 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
 
   const changeVolume = (e) => {
     const newVolume = parseFloat(e.target.value)
+    gsap.set('.volume-slider-under', {
+      width: `${newVolume * 100}%`
+    })
     setVolume(newVolume)
     videoRef.current.volume = newVolume
   }
@@ -119,8 +144,12 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
   return (
     <div className="video-player-wrapper">
       <div className="video-player-bg"></div>
-      <div className="video-player" onMouseEnter={videoEnter} onMouseLeave={videoLeave}>
-        <video autoPlay ref={videoRef} onClick={handlePlay} onTimeUpdate={videoTime}>
+      <div className="video-player"
+        onMouseEnter={!isSmallScreen ? videoEnter : null} 
+        onMouseLeave={!isSmallScreen ? videoLeave : null}
+        onClick={isSmallScreen ? showControls : null}>
+
+        <video autoPlay ref={videoRef} onClick={!isSmallScreen ? handlePlay : null} onTimeUpdate={videoTime}>
           <source src={videoSrc} type="video/mp4" />
         </video>
 
@@ -132,19 +161,22 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
         <div className="video-gradient"></div>
         <div className="video-controls">
           <div className="video-controls-content">
-            <div className="progress-wrapper" onClick={e => videoSeek(e)} ref={progressRef} onMouseEnter={progressEnter} onMouseLeave={progressLeave}>
+            <div className="progress-wrapper" onClick={e => videoSeek(e)} ref={progressRef}
+              onMouseEnter={!isSmallScreen ? progressEnter : null}
+              onMouseLeave={!isSmallScreen ? progressLeave : null}>
+
               <div className="progress-bar"></div>
             </div>
 
             <div className="below">
               <div className="play-pause" onClick={handlePlay}>
                 {play ?
-                  <svg className="play-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.25 12L8.5 17.629V6.37L18.25 12Z"/></svg> :
-                  <svg className="pause-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 17V7H8v10h3Zm5 0V7h-3v10h3Z"/></svg>}
+                  <svg className="pause-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 17V7H8v10h3Zm5 0V7h-3v10h3Z"/></svg> :
+                  <svg className="play-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.25 12L8.5 17.629V6.37L18.25 12Z"/></svg>}
               </div>
-              <div className="volume-container">
+              {!isSmallScreen && <div className="volume-container">
                 <input type="range" id="volume-slider" min="0" max="1" step="0.01" value={volume} onInput={changeVolume} />
-              </div>
+              </div>}
             </div>
           </div>
         </div>

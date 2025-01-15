@@ -66,10 +66,10 @@ const Audio = () => {
         <source src="src/assets/chihiro.mp3" type="audio/mp3" />
       </audio>
       <div className="bars">
-        <span className="bar" ref={el => barsRef.current[0] = el}></span>
-        <span className="bar" ref={el => barsRef.current[1] = el}></span>
-        <span className="bar" ref={el => barsRef.current[2] = el}></span>
-        <span className="bar" ref={el => barsRef.current[3] = el}></span>
+        <div className="bar" ref={el => barsRef.current[0] = el}></div>
+        <div className="bar" ref={el => barsRef.current[1] = el}></div>
+        <div className="bar" ref={el => barsRef.current[2] = el}></div>
+        <div className="bar" ref={el => barsRef.current[3] = el}></div>
       </div>
     </div>
   )

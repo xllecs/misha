@@ -15,7 +15,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
     })
 
     gsap.from('.landing-title .letter', {
-      y: 55,
+      y: "1.3em",
       duration: .8,
       ease: "power4.out",
       stagger: {
@@ -34,7 +34,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
     })
 
     gsap.from('.landing-desc .letter', {
-      y: 40,
+      y: "1.3em",
       duration: .3,
       ease: "power4.out",
       stagger: {
@@ -45,7 +45,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
 
   const buttonEnter = () => {
     gsap.to('.words-up .letter', {
-      y: -30,
+      y: "-1.6em",
       duration: .3,
       stagger: {
         each: .02
@@ -53,7 +53,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
     })
 
     gsap.to('.words-down .letter', {
-      y: -31,
+      y: "-1.5em",
       duration: .3,
       stagger: {
         each: .02
@@ -96,7 +96,6 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
   return (
     <div className="landing-wrapper">
       <div className="landing-content">
-        {/* <img src="src/assets/images/misha-logo.png" className="misha-logo" /> */}
         <img src="src/assets/images/misha-new-logo.png" className="misha-logo" />
 
         <div className="right-side">
@@ -123,17 +122,19 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
           onClick={onPageEnter}
           onMouseEnter={buttonEnter}
           onMouseLeave={buttonLeave}>
-          <div className="enter-text">
-            <div className="words-up">
-              {renderText(buttonText)}
+            <div className="enter-button-content">
+              <div className="enter-text">
+                <div className="words-up">
+                  {renderText(buttonText)}
+                </div>
+                <div className="words-down">
+                  {renderText(buttonText)}
+                </div>
+              </div>
+              <div className="enter-arrow">
+                <span></span>
+              </div>
             </div>
-            <div className="words-down">
-              {renderText(buttonText)}
-            </div>
-          </div>
-          <div className="enter-arrow">
-            <span></span>
-          </div>
         </div>
         <div className="no-sound" onClick={onPageEnterNoSound}>ENTER WITHOUT SOUND</div>
       </div>

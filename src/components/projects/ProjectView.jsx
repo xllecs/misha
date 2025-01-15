@@ -1,12 +1,18 @@
-import '../../assets/styles/grid/GridGameView.css'
+import '../../assets/styles/projects/ProjectView.css'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ReactLenis from 'lenis/react'
 import { renderText } from '../../utils/renderText'
+import { useSelector } from 'react-redux'
 
-const GridGameView = ({ videos, onReturnHome, onViewVideo }) => {
+const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
   const lenisRef = useRef()
+  const videosRef = useRef()
+  const nothingRef = useRef()
+  const [position, setPosition] = useState(0)
+
+  const { isSmallScreen } = useSelector(state => state.screenSize )
 
   const gameEnter = (e) => {
     const image = e.currentTarget.querySelector('.image')
@@ -48,8 +54,8 @@ const GridGameView = ({ videos, onReturnHome, onViewVideo }) => {
 
   gsap.registerPlugin(useGSAP)
 
-  useGSAP(() => {
-    gsap.from('.game-view-wrapper', {
+  useGSAP(() => {    
+    gsap.from('.project-view-wrapper', {
       opacity: 0,
     })
 
@@ -64,18 +70,8 @@ const GridGameView = ({ videos, onReturnHome, onViewVideo }) => {
   }, [])
 
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      const x = event.clientX / window.innerWidth
-      const y = event.clientY / window.innerHeight
-
-      gsap.to(".game-video-wrapper", {
-        x: (index) => (x - 0.2) * (index % 5 + 1) * 10,
-        y: (index) => (y - 0.2) * (Math.floor(index / 5) + 1) * 10,
-        duration: .7,
-      })
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
+    const rect = videosRef.current ? videosRef.current.getBoundingClientRect() : nothingRef.current.getBoundingClientRect()
+    setPosition(rect.left)
 
     function update(time) {
       lenisRef.current?.lenis?.raf(time * 1000)
@@ -85,29 +81,26 @@ const GridGameView = ({ videos, onReturnHome, onViewVideo }) => {
 
     return () => {
       gsap.ticker.remove(update)
-      window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
 
   return (
-    <div className="game-view-wrapper">
-      <div className="game-view-content">
-        <div className="return-home" onClick={onReturnHome}>
+    <div className="project-view-wrapper">
+      <div className="project-view-content">
+        <div className="return-home"
+          style={{ left: `${position - 90}px`, position: 'absolute' }}
+          onClick={onReturnHome}>
           <span></span>
         </div>
         {videos ? 
           <ReactLenis
-            options={{
-              autoRaf: false,
-              orientation: "horizontal",
-              gestureOrientation: "both",
-            }}
+            options={{ autoRaf: false, orientation: isSmallScreen ? 'vertical' : 'horizontal' }}
             ref={lenisRef}
             className="scrollable-content"
           >
-            <div className="videos-wrapper">
+            <div className="videos-wrapper" ref={videosRef}>
               {videos.map((video, videoIndex) => (
-                <div key={`video-${videoIndex}`} className="game-video-wrapper"
+                <div key={`video-${videoIndex}`} className="project-video-wrapper"
                   onClick={() => onViewVideo(video.videoUrl)}
                   onMouseEnter={gameEnter}
                   onMouseLeave={gameLeave}>
@@ -117,10 +110,10 @@ const GridGameView = ({ videos, onReturnHome, onViewVideo }) => {
               ))}
             </div>
           </ReactLenis> :
-          <div className="no-videos">{renderText('NOTHING TO SHOW YET.')}</div>}
+          <div className="no-videos" ref={nothingRef}>{renderText('NOTHING TO SHOW YET')}</div>}
       </div>
     </div>
   )
 }
 
-export default GridGameView
+export default ProjectView
