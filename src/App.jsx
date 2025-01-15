@@ -1,18 +1,20 @@
-import './App.css'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { useEffect,  useRef,  useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { useDispatch } from 'react-redux'
+import { stopAudio } from './redux/play.js'
+import { setIsSmallScreen } from './redux/resize.js'
 
 import Home from './components/Home.jsx'
 import Landing from './components/Landing.jsx'
-import { useDispatch } from 'react-redux'
-import { stopAudio } from './redux/play.js'
-import ReactLenis from 'lenis/react'
+
+import './App.css'
+import './assets/styles/Responsive.css'
 
 function App() {
   const [landing, setLanding] = useState(true)
   const dispatch = useDispatch()
-  const lenisRef = useRef()
   
   const handlePageEnter = () => {
     gsap.to('.landing-wrapper', {
@@ -34,32 +36,20 @@ function App() {
   }
 
   useEffect(() => {
-    window.scrollTo({ top: 0 })
+    window.scrollTo(0, 0)
   })
-
-  // useEffect(() => {
-  //   function update(time) {
-  //     lenisRef.current?.lenis?.raf(time * 1000);
-  //   }
-
-  //   gsap.ticker.add(update);
-
-  //   return () => gsap.ticker.remove(update);
-  // }, [])
 
   gsap.registerPlugin(useGSAP)
 
   useGSAP(() => {
     if (landing) {
-      gsap.set('.app-wrapper', {
+      gsap.set('body', {
         overflow: 'hidden'
       })
-      // document.body.style.overflow = 'hidden'
     } else {
-      gsap.set('.app-wrapper', {
+      gsap.set('body', {
         overflow: 'auto'
       })
-      // document.body.style.overflow = 'auto'
     }
   }, [landing])
 
@@ -78,22 +68,25 @@ function App() {
   //   })
   // }
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize)
+
+    if (windowWidth <= 576 || (windowWidth > 576 && windowWidth <= 768)) {
+      dispatch(setIsSmallScreen())
+    }
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [dispatch, windowWidth])
+
   return (
     <div className="app-wrapper">
-      {/* <ReactLenis
-        options={{
-          autoRaf: false,
-          orientation: "vertical",
-          // gestureOrientation: "both",
-        }}
-        ref={lenisRef}
-        className="app-content"
-      > */}
       <div className="app-content">
         <Landing onPageEnter={handlePageEnter} onPageEnterNoSound={handlePageEnterNoSound} />
         {!landing && <Home />}
       </div>
-      {/* </ReactLenis> */}
     </div>
   )
 }
