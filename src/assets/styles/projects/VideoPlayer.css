@@ -28,9 +28,9 @@
   right: 0;
   width: 2vw;
   cursor: pointer;
-  backdrop-filter: blur(.5vw);
   fill: white;
   opacity: .75;
+  background-color: #2E073F;
 }
 
 .play-center, .pause-center {
@@ -41,6 +41,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .video-gradient {
@@ -111,8 +112,17 @@
   display: flex;
 }
 
+/* .volume-container .volume-slider-under {
+  height: .2vw;
+  width: 20%;
+  border-radius: 4vw;
+  background-color: #2E073F;
+  position: absolute;
+} */
+
 .volume-container #volume-slider {
-  background-color: white;
+  /* background-color: white; */
+  backdrop-filter: blur(.5vw);
   opacity: .75;
   height: .2vw;
   width: 20%;

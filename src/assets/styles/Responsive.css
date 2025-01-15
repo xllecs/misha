@@ -1,0 +1,257 @@
+/* PHONES > */
+@media (max-width: 576px) {
+  .app-wrapper {
+    height: 235vh;
+  }
+
+  .home-logo {
+    width: 12vw;
+  }
+
+  .home-desc-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .scroll-wrapper {
+    bottom: 25%;
+  }
+  
+  .project-wrapper {
+    width: 37vw;
+    height: 37vw;
+    margin-bottom: 5vw;
+    opacity: .5;
+  }
+
+  .project-wrapper .title-wrapper {
+    font-size: 5vw;
+  }
+
+  .text-line {
+    font-size: 8vw;
+  }
+
+  /* PROJECT-VIEW > */
+  .project-view-content {
+    max-height: 65%;
+    align-items: initial;
+  }
+
+  .scrollable-content {
+    overflow-y: auto;
+    --mask-top: linear-gradient(to top, 
+      rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 90%,
+      rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 100%
+    );
+    --mask-bottom: linear-gradient(to bottom, 
+      rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 90%,
+      rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 100%
+    );
+    mask: var(--mask-top), var(--mask-bottom);
+    mask-composite: intersect;
+  }
+
+  .videos-wrapper {
+    grid-template-rows: repeat(auto-fill, 25vw);
+    grid-template-columns: repeat(2, 25vw);
+    grid-auto-flow: row;
+  }
+
+  .project-video-wrapper {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .project-video-wrapper .title-wrapper {
+    font-size: 3vw;
+  }
+
+  .return-home span {
+    width: .8em;
+    height: .8em;
+    border-bottom: .31em solid white;
+    border-right: .31em solid white;
+  }
+  /* < PROJECT-VIEW */
+
+  /* VIDEO-PLAYER > */
+  .video-player {
+    height: 75%;
+  }
+
+  .close-icon {
+    width: 2em;
+  }
+
+  .play-center, .pause-center {
+    width: 3em;
+  }
+
+  .progress-wrapper {
+    height: .5em;
+  }
+
+  .play-bottom, .pause-bottom {
+    width: 2.5em;
+  }
+  /* < VIDEO-PLAYER */
+}
+/* < PHONES */
+
+/* TABLETS > */
+@media (min-width: 577px) and (max-width: 768px) {
+  .app-wrapper {
+    height: 260vh;
+  }
+
+  .home-logo {
+    width: 12vw;
+  }
+
+  .project-wrapper {
+    width: 35vw;
+    height: 35vw;
+    margin-bottom: 5vw;
+    opacity: .5;
+  }
+
+  .project-wrapper .title-wrapper {
+    font-size: 4vw;
+  }
+
+  .home-desc-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text-line {
+    font-size: 8vw;
+  }
+
+  .scroll-wrapper {
+    bottom: 25%;
+  }
+
+  /* PROJECT-VIEW > */
+  .project-view-content {
+    max-height: 65%;
+    align-items: initial;
+  }
+
+  .scrollable-content {
+    overflow-y: auto;
+    --mask-top: linear-gradient(to top, 
+      rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 90%,
+      rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 100%
+    );
+    --mask-bottom: linear-gradient(to bottom, 
+      rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 90%,
+      rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 100%
+    );
+    mask: var(--mask-top), var(--mask-bottom);
+    mask-composite: intersect;
+  }
+
+  .videos-wrapper {
+    grid-template-rows: repeat(auto-fill, 25vw);
+    grid-template-columns: repeat(2, 25vw);
+    grid-auto-flow: row;
+  }
+
+  .project-video-wrapper {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .project-video-wrapper .title-wrapper {
+    font-size: 3vw;
+  }
+
+  .return-home span {
+    width: .8em;
+    height: .8em;
+    border-bottom: .31em solid white;
+    border-right: .31em solid white;
+  }
+  /* < PROJECT-VIEW */
+
+  /* VIDEO-PLAYER > */
+  .video-player {
+    height: 75%;
+  }
+
+  .close-icon {
+    width: 2em;
+  }
+
+  .play-center, .pause-center {
+    width: 3em;
+  }
+
+  .progress-wrapper {
+    height: .5em;
+  }
+
+  .play-bottom, .pause-bottom {
+    width: 2.5em;
+  }
+  /* < VIDEO-PLAYER */
+}
+/* < TABLETS */
+
+@media (min-width: 769px) and (max-width: 844px) {
+  .home-logo {
+    width: 12vw;
+  }
+  
+  .grid-content {
+    width: 90vh;
+    height: 60%;
+    left: 50%;
+  }
+
+  .project-wrapper {
+    width: 25vw;
+    height: 25vw;
+  }
+}
+
+@media (min-width: 845px) and (max-width: 899px) {
+  .grid-content {
+    width: 90vh;
+    height: 60%;
+    left: 55%;
+  }
+
+  .project-wrapper {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 992px) {
+  .grid-content {
+    width: 90vh;
+    height: 60%;
+    left: 60%;
+  }
+
+  .project-wrapper {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .grid-content {
+    width: 100vh;
+  }
+
+  .project-wrapper {
+    width: 15em;
+    height: 15em;
+  }
+}

@@ -10,17 +10,17 @@
 
 .arrow {
   position: absolute;
-  top: 3.5vw;
+  top: 3.3em;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .arrow span {
   display: block;
-  width: .5vw;
-  height: .5vw;
-  border-bottom: 3px solid white;
-  border-right: 3px solid white;
+  width: .5em;
+  height: .5em;
+  border-bottom: .15em solid white;
+  border-right: .15em solid white;
   opacity: .75;
   transform: rotate(45deg);
   animation: animate 2s infinite;
