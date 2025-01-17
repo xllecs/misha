@@ -2,7 +2,7 @@ import { useState } from "react";
 import gsap from "gsap";
 
 import { useDispatch } from "react-redux";
-import { playAudio, stopAudio } from '../../redux/play'
+import { stopAudio } from '../../redux/play'
 
 export const useProjectView = (className) => {
   const [projectView, setProjectView] = useState(false);

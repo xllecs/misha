@@ -8,6 +8,7 @@
 }
 
 .project-view-content {
+  position: relative;
   display: flex;
   align-items: center;
   max-width: 65%;
@@ -44,6 +45,10 @@
   height: 14vw;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-video-wrapper .image {
@@ -53,15 +58,14 @@
   background-size: cover;
   background-position: center;
   filter: saturate(0);
+  position: absolute;
+  z-index: -1;
 }
 
 .project-video-wrapper .title-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
   color: white;
-  display: flex;
   pointer-events: none;
   font-size: 2vw;
 }
@@ -75,6 +79,7 @@
   align-items: center;
   position: absolute;
   top: 50%;
+  left: -6.5em;
   transform: translateY(-50%);
 }
 

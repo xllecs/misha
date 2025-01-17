@@ -1,7 +1,7 @@
 /* PHONES > */
 @media (max-width: 576px) {
   .app-wrapper {
-    height: 235vh;
+    height: 230vh;
   }
 
   .home-logo {
@@ -31,6 +31,15 @@
 
   .text-line {
     font-size: 8vw;
+  }
+
+  .bars {
+    width: 5vw;
+    height: 4vw;
+  }
+  
+  .bars .bar {
+    width: .5vw;
   }
 
   /* PROJECT-VIEW > */
@@ -66,6 +75,10 @@
 
   .project-video-wrapper .title-wrapper {
     font-size: 3vw;
+  }
+
+  .return-home {
+    left: -4.5em;
   }
 
   .return-home span {
@@ -135,6 +148,15 @@
     bottom: 25%;
   }
 
+  .bars {
+    width: 5vw;
+    height: 4vw;
+  }
+  
+  .bars .bar {
+    width: .5vw;
+  }
+
   /* PROJECT-VIEW > */
   .project-view-content {
     max-height: 65%;
@@ -168,6 +190,10 @@
 
   .project-video-wrapper .title-wrapper {
     font-size: 3vw;
+  }
+
+  .return-home {
+    left: -4.5em;
   }
 
   .return-home span {

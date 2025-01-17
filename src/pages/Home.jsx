@@ -7,13 +7,13 @@ import { useSelector } from 'react-redux'
 
 import { renderText } from '../utils/renderText'
 
-import ProjectsGrid from "./projects/ProjectsGrid"
-import Video from './Video'
-import Scroll from './miscs/Scroll'
-import Audio from './miscs/Audio'
-import ProjectsVertical from './projects/ProjectsVertical'
+import ProjectsGrid from "../components/projects/ProjectsGrid"
+import Video from '../components/Video'
+import Scroll from '../components/miscs/Scroll'
+import Audio from '../components/miscs/Audio'
+import ProjectsVertical from '../components/projects/ProjectsVertical'
 
-import '../assets/styles/Home.css'
+import '../assets/styles/pages/Home.css'
 
 const Home = ({ landing }) => {
   const text = ['MISHA MISHA', 'MISHA', 'MISHA']
@@ -29,7 +29,7 @@ const Home = ({ landing }) => {
   useGSAP(() => {
     if (!landing) {
       gsap.from('.text-line .letter', {
-        y: 115,
+        y: 120,
         duration: .5,
         ease: "power4.out",
         delay: .3,
@@ -48,7 +48,7 @@ const Home = ({ landing }) => {
       })
       
       tl1.to('.text-line .letter', {
-        y: 115,
+        y: 120,
         duration: .5,
         ease: "power4.in",
         stagger: {

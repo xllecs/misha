@@ -1,7 +1,8 @@
-import '../assets/styles/Landing.css'
 import gsap from 'gsap'
-import { renderText } from '../utils/renderText'
 import { useGSAP } from '@gsap/react'
+import { renderText } from '../utils/renderText'
+
+import '../assets/styles/pages/Landing.css'
 
 const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
   const promoTitle = 'PROMO SERVICES'

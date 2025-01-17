@@ -3,13 +3,13 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
 
-import gridData from "./grid-data.json"
+import projectsData from "./projects-data.json"
 import Project from "./Project"
 import ProjectView from './ProjectView'
 import VideoPlayer from './VideoPlayer'
 import { useProjectView, useVideoPlayer } from './ProjectsUtils'
 
-import '../../assets/styles/projects/Grid.css'
+import '../../assets/styles/components/projects/ProjectsGrid.css'
 
 const ProjectsGrid = () => {
   const videoPlayerRef = useRef(null)
@@ -18,14 +18,12 @@ const ProjectsGrid = () => {
   const { selectedVideo, handleViewVideo, handleCloseVideo } = useVideoPlayer(videoPlayerRef)
   
   const gridContentRef = useRef(null)
-  const videos = gridData[projectId]?.videos
+  const videos = projectsData[projectId]?.videos
 
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(useGSAP)
 
   useGSAP(() => {
-    console.log('projectView', projectView)
-
     if (!projectView) {
       gsap.set('body', {
         overflow: 'hidden',
@@ -50,7 +48,6 @@ const ProjectsGrid = () => {
           scrub: true,
           start: "top top",
           end: "bottom 361",
-          markers: true,
         },
         immediateRender: false,
         onUpdate: () => {
@@ -68,29 +65,31 @@ const ProjectsGrid = () => {
   }, { dependencies: [projectView], revertOnUpdate: true } )
 
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      const x = event.clientX / window.innerWidth
-      const y = event.clientY / window.innerHeight
+    if (!projectView) {
+      const handleMouseMove = (event) => {
+        const x = event.clientX / window.innerWidth
+        const y = event.clientY / window.innerHeight
 
-      gsap.to(".project-wrapper", {
-        x: (index) => (x - 0.5) * (index % 5 + 1) * 40,
-        y: (index) => (y - 0.5) * (Math.floor(index / 5) + 1) * 40,
-        duration: .7,
-      })
+        gsap.to(".project-wrapper", {
+          x: (index) => (x - 0.5) * (index % 5 + 1) * 40,
+          y: (index) => (y - 0.5) * (Math.floor(index / 5) + 1) * 40,
+          duration: 2,
+        })
+      }
+
+      window.addEventListener("mousemove", handleMouseMove)
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove)
+      }
     }
-
-    window.addEventListener("mousemove", handleMouseMove)
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
+  }, [projectView])
 
   return (
     <div className="grid-wrapper">
       {projectView ? <ProjectView videos={videos} onReturnHome={handleHomeReturn} onViewVideo={handleViewVideo} /> :
         <div className="grid-content" ref={gridContentRef}>
-          {gridData.map((project, projectId) => (
+          {projectsData.map((project, projectId) => (
             <Project key={`project-${projectId}`}
               title={project.title}
               imageUrl={project.imageUrl}

@@ -1,0 +1,22 @@
+.audio-wrapper {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+}
+
+.bars {
+  display: flex;
+  justify-content: space-between;
+  width: 3vw;
+  height: 2vw;
+  transform: rotate(180deg);
+}
+
+.bars .bar {
+  width: .3vw;
+  background-color: white;
+  opacity: .5;
+  content: '';
+  border-radius: 10vw;
+}

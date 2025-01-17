@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux'
 import { stopAudio } from './redux/play.js'
 import { setIsSmallScreen } from './redux/resize.js'
 
-import Home from './components/Home.jsx'
-import Landing from './components/Landing.jsx'
+import Home from './pages/Home.jsx'
+import Landing from './pages/Landing.jsx'
 
 import './App.css'
 import './assets/styles/Responsive.css'
@@ -52,21 +52,6 @@ function App() {
       })
     }
   }, [landing])
-
-  // const progressEnter = () => {
-  //   console.log('asd')
-  //   gsap.to('.test-wrapper .progress-bar', {
-  //     height: '2vw',
-  //     duration: .2,
-  //   })
-  // }
-
-  // const progressLeave = () => {
-  //   gsap.to('.test-wrapper .progress-bar', {
-  //     height: '0.2vw',
-  //     duration: .2,
-  //   })
-  // }
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 

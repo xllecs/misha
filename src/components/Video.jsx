@@ -1,8 +1,10 @@
-import '../assets/styles/Video.css'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
 import { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
+
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+import '../assets/styles/components/Video.css'
 
 const Video = () => {
   const bgVideoRef = useRef()
@@ -18,7 +20,7 @@ const Video = () => {
     gsap.to('.video-wrapper', {
       filter: 'blur(6px)',
       scrollTrigger: {
-        trigger: ".grid-wrapper",
+        trigger: ".projects-wrapper",
         start: "top top",
         end: "bottom top",
         scrub: true,
@@ -30,7 +32,7 @@ const Video = () => {
     <>
       <div className="video-wrapper">
         <video autoPlay loop ref={bgVideoRef}>
-          <source src="src/assets/videos/0110.mp4" type="video/mp4" />
+          <source src="src/assets/videos/bg-video.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="grey-bg"></div>

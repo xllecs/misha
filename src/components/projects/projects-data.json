@@ -64,20 +64,9 @@
     "imageUrl": "src/assets/grid/fivem/fivem.jpg",
     "videos": [
       {
-        "title": "FiveM - Trailer",
-        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
-      },
-      {
-        "title": "FiveM - Gameplay",
-        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
-      },
-      {
-        "title": "FiveM - Gameplay",
-        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
-      },
-      {
-        "title": "FiveM - Gameplay",
-        "thumbnailUrl": "src/assets/grid/fivem/fivem.jpg"
+        "title": "FIVEM TRAILER",
+        "thumbnailUrl": "src/assets/projects/fivem/video_1/fivem_trailer_thumb.png",
+        "videoUrl": "src/assets/projects/fivem/video_1/fivem_trailer.mp4"
       }
     ],
     "position": {
@@ -88,6 +77,13 @@
   {
     "title":"BDO",
     "imageUrl": "src/assets/grid/bdo/bdo.jpg",
+    "videos": [
+      {
+        "title": "BDO TRAILER",
+        "thumbnailUrl": "src/assets/projects/bdo/video_1/bdo_trailer_thumb.png",
+        "videoUrl": "src/assets/projects/bdo/video_1/bdo_trailer.mp4"
+      }
+    ],
     "position": {
       "x": 70,
       "y": 45

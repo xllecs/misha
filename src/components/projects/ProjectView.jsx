@@ -1,18 +1,19 @@
-import '../../assets/styles/projects/ProjectView.css'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
 import ReactLenis from 'lenis/react'
 import { renderText } from '../../utils/renderText'
-import { useSelector } from 'react-redux'
+
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+import '../../assets/styles/components/projects/ProjectView.css'
 
 const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
   const lenisRef = useRef()
   const videosRef = useRef()
   const nothingRef = useRef()
-  const [position, setPosition] = useState(0)
 
-  const { isSmallScreen } = useSelector(state => state.screenSize )
+  const { isSmallScreen } = useSelector(state => state.screenSize)
 
   const gameEnter = (e) => {
     const image = e.currentTarget.querySelector('.image')
@@ -20,16 +21,6 @@ const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
       filter: 'saturate(1)',
       scale: 1.3,
       duration: .3,
-    })
-      
-    const letters = e.currentTarget.querySelectorAll('.title-wrapper .letter')
-    gsap.to(letters, {
-      y: 0,
-      ease: "power3.in",
-      duration: .2,
-      stagger: {
-        each: .04
-      }
     })
   }
 
@@ -40,16 +31,6 @@ const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
       scale: 1,
       duration: .3,
     })
-
-    const letters = e.currentTarget.querySelectorAll('.title-wrapper .letter')
-    gsap.to(letters, {
-      y: 40,
-      ease: "power3.in",
-      duration: .2,
-      stagger: {
-        each: .04
-      }
-    })
   }
 
   gsap.registerPlugin(useGSAP)
@@ -59,20 +40,19 @@ const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
       opacity: 0,
     })
 
-    gsap.from('.no-videos .letter', {
-      y: '2.5vw',
-      duration: .3,
-      ease: "power4.out",
-      stagger: {
-        each: .025
-      }
-    })
+    if (nothingRef.current) {
+      gsap.from('.no-videos .letter', {
+        y: '2.5vw',
+        duration: .3,
+        ease: "power4.out",
+        stagger: {
+          each: .025
+        }
+      })
+    }
   }, [])
 
   useEffect(() => {
-    const rect = videosRef.current ? videosRef.current.getBoundingClientRect() : nothingRef.current.getBoundingClientRect()
-    setPosition(rect.left)
-
     function update(time) {
       lenisRef.current?.lenis?.raf(time * 1000)
     }
@@ -88,7 +68,6 @@ const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
     <div className="project-view-wrapper">
       <div className="project-view-content">
         <div className="return-home"
-          style={{ left: `${position - 90}px`, position: 'absolute' }}
           onClick={onReturnHome}>
           <span></span>
         </div>

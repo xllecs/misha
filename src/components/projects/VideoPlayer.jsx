@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import '../../assets/styles/projects/VideoPlayer.css'
+import { useSelector } from 'react-redux'
+
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-import { useSelector } from 'react-redux'
+import '../../assets/styles/components/projects/VideoPlayer.css'
 
 const VideoPlayer = ({ videoSrc, onClose }) => {
   const [play, setPlay] = useState(true)
@@ -141,15 +142,45 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
     videoRef.current.volume = newVolume
   }
 
+  const [aspectRatio, setAspectRatio] = useState(null)
+
+  const handleMetadataLoaded = (event) => {
+    const { videoWidth, videoHeight } = event.target
+    setAspectRatio(videoWidth / videoHeight)
+  }
+
+  const videoOrientation = aspectRatio > 1 ?
+    {
+      aspectRatio: '16/9',
+      height: '35vw',
+      width: '75vw',
+    } : 
+    {
+      aspectRatio: '9/16',
+      height: '80%',
+    }
+
   return (
     <div className="video-player-wrapper">
       <div className="video-player-bg"></div>
       <div className="video-player"
         onMouseEnter={!isSmallScreen ? videoEnter : null} 
         onMouseLeave={!isSmallScreen ? videoLeave : null}
-        onClick={isSmallScreen ? showControls : null}>
+        onClick={isSmallScreen ? showControls : null}
+        style={{
+          ...videoOrientation,
+          userSelect: 'none',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}>
 
-        <video autoPlay ref={videoRef} onClick={!isSmallScreen ? handlePlay : null} onTimeUpdate={videoTime}>
+        <video autoPlay ref={videoRef}
+          onLoadedMetadata={handleMetadataLoaded}
+          onClick={!isSmallScreen ? handlePlay : null}
+          onTimeUpdate={videoTime}>
+          
           <source src={videoSrc} type="video/mp4" />
         </video>
 

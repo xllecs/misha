@@ -1,4 +1,4 @@
-import '../../assets/styles/miscs/Scroll.css'
+import '../../assets/styles/components/miscs/Scroll.css'
 
 const Scroll = () => {
   return (

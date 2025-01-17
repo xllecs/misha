@@ -1,12 +1,14 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import '../../assets/styles/projects/Project.css'
+import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { renderText } from '../../utils/renderText'
+
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/all'
-import { useSelector } from 'react-redux'
 
-const Project = ({title, imageUrl, position, projectView, onClick}) => {
+import '../../assets/styles/components/projects/Project.css'
+
+const Project = ({title, imageUrl, position, projectView, initialPosition, onClick}) => {
   const style = position
     ? { top: `${position.y}%`, left: `${position.x}%` }
     : { position: 'relative', pointerEvents: 'none' }
@@ -14,9 +16,6 @@ const Project = ({title, imageUrl, position, projectView, onClick}) => {
   const projectRef = useRef()
 
   const { isSmallScreen } = useSelector(state => state.screenSize)
-
-  const [start, setStart] = useState(0)
-  const [end, setEnd] = useState(0)
 
   const projectEnter = (e) => {
     const image = e.childNodes[0]
@@ -57,88 +56,63 @@ const Project = ({title, imageUrl, position, projectView, onClick}) => {
     })
   }
 
-  
-  
-
   gsap.registerPlugin(useGSAP)
   gsap.registerPlugin(ScrollTrigger)
-
-  // useEffect(() => {
-  //   const div = projectRef.current
-
-  //   const rect = div.getBoundingClientRect()
-  //   console.log(rect.top)
-  //   const start = rect.top + window.scrollY - window.innerHeight * 0.1
-  //   const end = rect.top + window.scrollY + div.offsetHeight - window.innerHeight * 0.1
-  // }, [projectView])
-
-  useLayoutEffect(() => {
-    const div = projectRef.current;
-    const rect = div.getBoundingClientRect();
-    console.log(rect.top);
-    const start = rect.top + window.scrollY - window.innerHeight * 0.1;
-    const end = rect.top + window.scrollY + div.offsetHeight - window.innerHeight * 0.1;
-  }, [projectView])
 
   useGSAP(() => {
     if (isSmallScreen) {
       const div = projectRef.current
 
-      const rect = div.getBoundingClientRect()
-      const start = rect.top + window.scrollY - window.innerHeight * 0.1
-      const end = rect.top + window.scrollY + div.offsetHeight - window.innerHeight * 0.1
+      const start = initialPosition + window.scrollY - window.innerHeight * 0.1
+      const end = initialPosition + window.scrollY + div.offsetHeight - window.innerHeight * 0.08
 
-      // console.log(start)
-      // console.log(end)
-
-      // ScrollTrigger.create({
-      //   trigger: '.projects-wrapper',
-      //   start: `${start + 50} 300`,
-      //   end: `${end + 200} 500`,
-      //   markers: true,
-      //   onEnter: () => {
-      //     gsap.to(div, {
-      //       opacity: 1,
-      //       duration: .3,
-      //     })
+      ScrollTrigger.create({
+        trigger: '.projects-wrapper',
+        start: `${start + 50} 360`,
+        end: `${end + 200} 630`,
+        onEnter: () => {
+          gsap.to(div, {
+            opacity: 1,
+            duration: .3,
+          })
           gsap.set(div, {
             pointerEvents: 'auto',
           })
-      //     projectEnter(div)
-      //   },
-      //   onLeave: () => {
-      //     gsap.to(div, {
-      //       opacity: .5,
-      //       duration: .3,
-      //     })
-      //     gsap.set(div, {
-      //       pointerEvents: 'none',
-      //     })
-      //     projectLeave(div)
-      //   },
-      //   onEnterBack: () => {
-      //     gsap.to(div, {
-      //       opacity: 1,
-      //       duration: .3,
-      //     })
-      //     gsap.set(div, {
-      //       pointerEvents: 'auto',
-      //     })
-      //     projectEnter(div)
-      //   },
-      //   onLeaveBack: () => {
-      //     gsap.to(div, {
-      //       opacity: .5,
-      //       duration: .3,
-      //     })
-      //     gsap.set(div, {
-      //       pointerEvents: 'none',
-      //     })
-      //     projectLeave(div)
-      //   },
-      // })
+          projectEnter(div)
+        },
+        onLeave: () => {
+          gsap.to(div, {
+            opacity: .5,
+            duration: .3,
+          })
+          gsap.set(div, {
+            pointerEvents: 'none',
+          })
+          projectLeave(div)
+        },
+        onEnterBack: () => {
+          gsap.to(div, {
+            opacity: 1,
+            duration: .3,
+          })
+          gsap.set(div, {
+            pointerEvents: 'auto',
+          })
+          projectEnter(div)
+        },
+        onLeaveBack: () => {
+          gsap.to(div, {
+            opacity: .5,
+            duration: .3,
+          })
+          gsap.set(div, {
+            pointerEvents: 'none',
+          })
+          projectLeave(div)
+        },
+      })
     }
-  }, { dependencies: [], revertOnUpdate: true })
+  }, { dependencies: [projectView, initialPosition], revertOnUpdate: true })
 
   return (
     <div className="project-wrapper" onClick={onClick} style={style} ref={projectRef}
