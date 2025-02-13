@@ -6,6 +6,7 @@
   color: white;
   opacity: .75;
   user-select: none;
+  font-family: gravica-medium;
 }
 
 .arrow {

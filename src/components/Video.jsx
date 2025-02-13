@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import gsap from 'gsap'
@@ -7,14 +7,27 @@ import { useGSAP } from '@gsap/react'
 import '../assets/styles/components/Video.css'
 
 const Video = () => {
+  const [isVisible, setIsVisible] = useState(true)
   const bgVideoRef = useRef()
   const { isPlaying } = useSelector(state => state.audio)
 
-  useEffect(() => {
-    isPlaying ? bgVideoRef.current.volume = .1 : bgVideoRef.current.volume = 0
-  }, [isPlaying])
+  const handleVisibilityChange = () => {
+    setIsVisible(!document.hidden)
+  }
 
-  gsap.registerPlugin(useGSAP)
+  useEffect(() => {
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    isVisible ? bgVideoRef.current.play() : bgVideoRef.current.pause()
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [isVisible])
+
+  useEffect(() => {
+    isPlaying ? bgVideoRef.current.volume = .3 : bgVideoRef.current.volume = 0
+  }, [isPlaying])
 
   useGSAP(() => {
     gsap.to('.video-wrapper', {

@@ -1,0 +1,26 @@
+@font-face {
+  font-family: resonate;
+  src: url('src/assets/fonts/resonate.otf');
+}
+
+.text-anim-wrapper {
+  color: white;
+  opacity: .75;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3.5vw;
+  height: 100%;
+  width: 50%;
+  font-size: 4vw;
+  flex-wrap: wrap;
+  font-family: resonate;
+}
+
+.text-anim {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-wrap: wrap;
+}

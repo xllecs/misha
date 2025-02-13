@@ -9,15 +9,15 @@
   height: auto;
   width: 6vw;
   opacity: .75;
-  left: 2%;
-  top: 5%;
+  left: 3.5vw;
+  top: 3.5vw;
   transform: translateY(-20%);
 }
 
 .home-desc-wrapper {
   position: absolute;
   top: 50%;
-  left: 5%;
+  left: 3.5vw;
   transform: translateY(-50%);
   opacity: .75;
 }

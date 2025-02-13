@@ -22,12 +22,13 @@
   width: 17vw;
 }
 
-.landing-text {
+.right-side-content {
   text-align: center;
   user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1vw;
 }
 
 .landing-title, .landing-desc {
@@ -36,13 +37,14 @@
 }
 
 .landing-title {
-  margin-bottom: 1vw;
-  font-size: 1.8vw;
+  /* margin-bottom: 1vw; */
+  font-size: 1.5vw;
 }
 
 .landing-desc {
-  font-size: 1.2vw;
-  margin-bottom: 1vw;
+  font-size: 1.1vw;
+  /* margin-bottom: 1vw; */
+  font-family: gravica-medium;
 }
 
 .landing-title .word, .landing-desc .word {
@@ -79,6 +81,7 @@
   margin-top: 30px;
   color: white;
   cursor: pointer;
+  font-family: gravica-medium;
 }
 
 .enter-button {
@@ -101,6 +104,7 @@
   margin-right: .8vw;
   overflow: hidden;
   position: relative;
+  font-family: gravica-medium;
 }
 
 .enter-text .word {

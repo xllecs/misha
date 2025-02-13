@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import gsap from "gsap"
 import { useGSAP } from '@gsap/react'
@@ -45,7 +45,7 @@ const Audio = () => {
     }
   }, {dependencies: []})
 
-  const animateAudio = (isPlaying) => {
+  const animateBars = (isPlaying) => {
     let heights = []
     let opacities = []
 
@@ -74,27 +74,32 @@ const Audio = () => {
   const toggleAudio = () => {
     if (!isPlaying) {
       dispatch(playAudio())
-      animateAudio(true)
+      animateBars(true)
     } else {
       dispatch(stopAudio())
-      animateAudio(false)
+      animateBars(false)
     }
   }
 
-  gsap.registerPlugin(useGSAP)
-
   useGSAP(() => {
-    animateAudio(isPlaying)
+    animateBars(isPlaying)
 
     // return () => {
     //   gsap.killTweensOf('#background-audio')
     // }
   }, {dependencies: [isPlaying]})
 
+  useEffect(() => {
+    setTimeout(() => {
+      audioRef.current.play()
+      audioRef.current.volume = .08
+    }, 900)
+  }, [])
+
   return (
     <div className="audio-wrapper" onClick={toggleAudio}>
       <audio id="background-audio" ref={audioRef}>
-        <source src="src/assets/chihiro.mp3" type="audio/mp3" />
+        <source src="src/assets/audio/voice.mp3" type="audio/mp3" />
       </audio>
       <div className="bars">
         <div className="bar" ref={el => barsRef.current[0] = el}></div>

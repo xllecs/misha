@@ -92,6 +92,18 @@
   {
     "title":"MY WORK",
     "imageUrl": "src/assets/grid/bdo/bdo.jpg",
+    "videos": [
+      {
+        "title": "DANOVE AUTO",
+        "thumbnailUrl": "src/assets/projects/my_work/video_1/danove_thumb.png",
+        "videoUrl": "src/assets/projects/my_work/video_1/danove.mp4"
+      },
+      {
+        "title": "INOX RAILINGS",
+        "thumbnailUrl": "src/assets/projects/my_work/video_2/railings_thumb.png",
+        "videoUrl": "src/assets/projects/my_work/video_2/railings.mp4"
+      }
+    ],
     "position": {
       "x": 35,
       "y": 55

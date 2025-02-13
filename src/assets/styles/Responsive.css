@@ -14,6 +14,20 @@
     transform: translate(-50%, -50%);
   }
 
+  .text-anim-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.8em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .text-anim-wrapper .text-anim {
+    display: flex;
+    justify-content: center;
+  }
+
   .scroll-wrapper {
     bottom: 25%;
   }
@@ -138,6 +152,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .text-anim-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.6em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .text-anim-wrapper .text-anim {
+    display: flex;
+    justify-content: center;
   }
 
   .text-line {

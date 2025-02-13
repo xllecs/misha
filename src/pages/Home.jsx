@@ -14,9 +14,10 @@ import Audio from '../components/miscs/Audio'
 import ProjectsVertical from '../components/projects/ProjectsVertical'
 
 import '../assets/styles/pages/Home.css'
+import TextAnim from '../components/miscs/TextAnim'
 
 const Home = ({ landing }) => {
-  const text = ['MISHA MISHA', 'MISHA', 'MISHA']
+  const text = ['FEREASTRA SPRE', 'LUMEA MEA']
   const textLineRefs = useRef([])
 
   const homeRef = useRef()
@@ -65,7 +66,7 @@ const Home = ({ landing }) => {
         }
       })
       
-      tl2.to('.text-line .letter', {
+      tl2.to('.text-anim-wrapper', {
         filter: 'blur(6px)',
       })
   
@@ -89,13 +90,14 @@ const Home = ({ landing }) => {
   return (
     <div className="home-wrapper" ref={homeRef}>
       <Video />
-      <div className="home-desc-wrapper">
+      {/* <div className="home-desc-wrapper">
         {text.map((line, lineIndex) => (
           <div className="text-line" key={`line-${lineIndex}`} ref={el => textLineRefs.current[lineIndex] = el}>
             {renderText(line)}
           </div>
         ))}
-      </div>
+      </div> */}
+      <TextAnim />
       {isSmallScreen ? <ProjectsVertical /> : <ProjectsGrid />}
       <Audio />
       <img src="src/assets/images/misha-logo.png" className="home-logo"></img>

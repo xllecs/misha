@@ -100,7 +100,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
         <img src="src/assets/images/misha-new-logo.png" className="misha-logo" />
 
         <div className="right-side">
-          <div className="landing-text">
+          <div className="right-side-content">
             <div className="landing-title">
               {renderText(promoTitle)}
             </div>

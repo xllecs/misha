@@ -1,7 +1,7 @@
 .audio-wrapper {
   position: absolute;
-  right: 5%;
-  top: 5%;
+  right: 3.5vw;
+  top: 3vw;
   cursor: pointer;
 }
 

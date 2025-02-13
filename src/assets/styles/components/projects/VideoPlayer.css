@@ -103,14 +103,6 @@
   display: flex;
 }
 
-/* .volume-container .volume-slider-under {
-  height: .2vw;
-  width: 20%;
-  border-radius: 4vw;
-  background-color: #2E073F;
-  position: absolute;
-} */
-
 .volume-container #volume-slider {
   backdrop-filter: blur(.5vw);
   opacity: .75;
