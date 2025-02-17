@@ -49,6 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: .5em;
 }
 
 .project-video-wrapper .image {
@@ -81,22 +82,21 @@
   top: 50%;
   left: -6.5em;
   transform: translateY(-50%);
+  /* border: 1px solid blue; */
 }
 
-.return-home span {
+.return-home svg {
   position: absolute;
-  width: 1.2vw;
-  height: 1.2vw;
-  border-bottom: .35vw solid white;
-  border-right: .35vw solid white;
-  rotate: 90deg;
-  animation: animate-arrow 1.5s infinite;
+  width: 3vw;
+  height: 3vw;
+  animation: animate-return-arrow 1.5s infinite;
+  display: block;
 }
 
-@keyframes animate-arrow {
+@keyframes animate-return-arrow {
   0% {
     opacity: 0;
-    transform: rotate(45deg) translate(-.5vw, -.5vw);
+    transform: translateX(0);
   }
 
   50% {
@@ -105,7 +105,7 @@
 
   100% {
     opacity: 0;
-    transform: rotate(45deg) translate(0vw, 0vw);
+    transform: translateX(-1vw);
   }
 }
 

@@ -46,7 +46,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
 
   const buttonEnter = () => {
     gsap.to('.words-up .letter', {
-      y: "-1.6em",
+      y: "-1.3em",
       duration: .3,
       stagger: {
         each: .02
@@ -54,7 +54,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
     })
 
     gsap.to('.words-down .letter', {
-      y: "-1.5em",
+      y: "-1.3em",
       duration: .3,
       stagger: {
         each: .02
@@ -133,7 +133,7 @@ const Landing = ({ onPageEnter, onPageEnterNoSound }) => {
                 </div>
               </div>
               <div className="enter-arrow">
-                <span></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 48 48"><path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M19 12L31 24L19 36"/></svg>
               </div>
             </div>
         </div>

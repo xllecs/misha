@@ -5,8 +5,6 @@ import { ScrollTrigger } from 'gsap/all'
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 
-import { renderText } from '../utils/renderText'
-
 import ProjectsGrid from "../components/projects/ProjectsGrid"
 import Video from '../components/Video'
 import Scroll from '../components/miscs/Scroll'
@@ -17,9 +15,6 @@ import '../assets/styles/pages/Home.css'
 import TextAnim from '../components/miscs/TextAnim'
 
 const Home = ({ landing }) => {
-  const text = ['FEREASTRA SPRE', 'LUMEA MEA']
-  const textLineRefs = useRef([])
-
   const homeRef = useRef()
 
   gsap.registerPlugin(useGSAP)
@@ -85,18 +80,11 @@ const Home = ({ landing }) => {
         display: 'none',
       })
     }
-  }, [landing])
+  }, {dependencies: [landing, isSmallScreen]})
 
   return (
     <div className="home-wrapper" ref={homeRef}>
       <Video />
-      {/* <div className="home-desc-wrapper">
-        {text.map((line, lineIndex) => (
-          <div className="text-line" key={`line-${lineIndex}`} ref={el => textLineRefs.current[lineIndex] = el}>
-            {renderText(line)}
-          </div>
-        ))}
-      </div> */}
       <TextAnim />
       {isSmallScreen ? <ProjectsVertical /> : <ProjectsGrid />}
       <Audio />

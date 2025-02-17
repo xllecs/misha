@@ -6,8 +6,8 @@ export const screenSizeSlice = createSlice({
     isSmallScreen: false,
   },
   reducers: {
-    setIsSmallScreen: (state) => {
-      state.isSmallScreen = true
+    setIsSmallScreen: (state, action) => {
+      state.isSmallScreen = action.payload
     },
   },
 })

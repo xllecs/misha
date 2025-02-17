@@ -1,23 +1,17 @@
 @font-face {
-  font-family: fraktion;
-  src: url(assets/fonts/fraktion.otf);
+  font-family: goldplay-semibold;
+  src: url(assets/fonts/goldplay-semibold.ttf);
 }
 
 @font-face {
-  font-family: gravica-bold;
-  src: url(assets/fonts/gravica-bold.otf);
-}
-
-@font-face {
-  font-family: gravica-medium;
-  src: url(assets/fonts/gravica-medium.otf);
+  font-family: goldplay-bold;
+  src: url(assets/fonts/goldplay-semibold.ttf);
 }
 
 body {
   margin: 0;
   padding: 0;
-  /* font-family: fraktion; */
-  font-family: gravica-bold;
+  font-family: goldplay-semibold;
 }
 
 .app-wrapper {

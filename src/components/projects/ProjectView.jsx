@@ -69,7 +69,7 @@ const ProjectView = ({ videos, onReturnHome, onViewVideo }) => {
       <div className="project-view-content">
         <div className="return-home"
           onClick={onReturnHome}>
-          <span></span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M31 36L19 24L31 12"/></svg>
         </div>
         {videos ? 
           <ReactLenis

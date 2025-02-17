@@ -37,14 +37,14 @@
 }
 
 .landing-title {
-  /* margin-bottom: 1vw; */
   font-size: 1.5vw;
+  vertical-align: middle;
+  padding: 0;
+  font-family: goldplay-bold;
 }
 
 .landing-desc {
   font-size: 1.1vw;
-  /* margin-bottom: 1vw; */
-  font-family: gravica-medium;
 }
 
 .landing-title .word, .landing-desc .word {
@@ -81,7 +81,6 @@
   margin-top: 30px;
   color: white;
   cursor: pointer;
-  font-family: gravica-medium;
 }
 
 .enter-button {
@@ -98,13 +97,12 @@
 
 .enter-button-content {
   display: flex;
+  gap: .4vw;
 }
 
 .enter-text {
-  margin-right: .8vw;
   overflow: hidden;
   position: relative;
-  font-family: gravica-medium;
 }
 
 .enter-text .word {
@@ -121,23 +119,20 @@
 
 .enter-arrow {
   position: relative;
+  /* border: 1px solid red; */
+  /* width: 1.5em;
+  height: 1.5em; */
 }
 
-.enter-arrow span {
+.enter-arrow svg {
   position: absolute;
-  top: 35%;
-  width: .4em;
-  height: .4em;
-  border-bottom: .15em solid black;
-  border-right: .15em solid black;
-  rotate: 270deg;
-  animation: animate-arrow 1.5s infinite;
+  animation: animate-enter-arrow 1.5s infinite;
 }
 
-@keyframes animate-arrow {
+@keyframes animate-enter-arrow {
   0% {
     opacity: 0;
-    transform: rotate(45deg) translate(-.4em, -.4em);
+    left: -.3em;
   }
 
   50% {
@@ -146,7 +141,7 @@
 
   100% {
     opacity: 0;
-    transform: rotate(45deg) translate(0em, 0em);
+    left: 0
   }
 }
 

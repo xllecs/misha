@@ -184,9 +184,9 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
           <source src={videoSrc} type="video/mp4" />
         </video>
 
-        <svg className="close-icon" onClick={onClose} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7.05 5.636l4.95 4.95l4.95-4.95l1.414 1.414l-4.95 4.95l4.95 4.95l-1.415 1.414l-4.95-4.95l-4.949 4.95l-1.414-1.414l4.95-4.95l-4.95-4.95L7.05 5.636Z"/></svg>
+        <svg className="close-icon" onClick={onClose} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4"><path d="M8 8L40 40"/><path d="M8 40L40 8"/></g></svg>
 
-        <svg className="play-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1S1 5.925 1 12s4.925 11 11 11Zm-3.5-5.37V6.37L18.25 12L8.5 17.63Z"/></svg> :
+        <svg className="play-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1S1 5.925 1 12s4.925 11 11 11Zm-3.5-5.37V6.37L18.25 12L8.5 17.63Z"/></svg>
         <svg className="pause-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1S1 5.925 1 12s4.925 11 11 11ZM8 7h3v10H8V7Zm5 0h3v10h-3V7Z"/></svg>
 
         <div className="video-gradient"></div>
@@ -202,9 +202,9 @@ const VideoPlayer = ({ videoSrc, onClose }) => {
             <div className="below">
               <div className="play-pause" onClick={handlePlay}>
                 {play ?
-                  <svg className="pause-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 17V7H8v10h3Zm5 0V7h-3v10h3Z"/></svg> :
-                  <svg className="play-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.25 12L8.5 17.629V6.37L18.25 12Z"/></svg>}
-              </div>
+                  <svg className="pause-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4"><path d="M16 12V36"/><path d="M32 12V36"/></g></svg> :
+                  <svg className="play-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="white" stroke="white" strokeLinejoin="round" strokeWidth="4" d="M15 24V11.8756L25.5 17.9378L36 24L25.5 30.0622L15 36.1244V24Z"/></svg>}
+                </div>
               {!isSmallScreen && <div className="volume-container">
                 <input type="range" id="volume-slider" min="0" max="1" step="0.01" value={volume} onInput={changeVolume} />
               </div>}

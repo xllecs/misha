@@ -60,7 +60,11 @@ function App() {
     window.addEventListener('resize', handleResize)
 
     if (windowWidth <= 576 || (windowWidth > 576 && windowWidth <= 768)) {
-      dispatch(setIsSmallScreen())
+      dispatch(setIsSmallScreen(true))
+    }
+
+    if (windowWidth > 768) {
+      dispatch(setIsSmallScreen(false))
     }
 
     return () => window.removeEventListener('resize', handleResize);

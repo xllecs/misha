@@ -2,7 +2,11 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: 10;
+  /* z-index: 10; */
+}
+
+.video-player video {
+  border-radius: .5em;
 }
 
 .video-player-bg {
@@ -17,11 +21,13 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 2vw;
+  width: 1.4em;
+  padding: .3em;
   cursor: pointer;
-  fill: white;
   opacity: .75;
   background-color: #2E073F;
+  display: block;
+  border-bottom-left-radius: .5em;
 }
 
 .play-center, .pause-center {
@@ -43,6 +49,7 @@
   bottom: 0;
   pointer-events: none;
   opacity: 0;
+  border-radius: 0 0 .5em .5em;
 }
 
 .video-controls {
@@ -83,15 +90,12 @@
 .video-controls-content .below {
   display: flex;
   align-items: center;
-  margin-top: .4vw;
-}
-
-.play-pause {
-  margin-right: .4vw;
+  margin-top: .6vw;
+  gap: .6vw;
 }
 
 .play-bottom, .pause-bottom {
-  width: 2vw;
+  width: 1.5vw;
   cursor: pointer;
   fill: white;
   opacity: .75;
